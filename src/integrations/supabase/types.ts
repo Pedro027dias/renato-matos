@@ -14,16 +14,107 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      agendamentos: {
+        Row: {
+          barbeiro: string
+          cliente_nome: string
+          cliente_telefone: string
+          created_at: string
+          duracao_min: number
+          fim: string
+          id: string
+          inicio: string
+          observacoes: string | null
+          preco: string
+          servico: string
+          status: string
+        }
+        Insert: {
+          barbeiro: string
+          cliente_nome: string
+          cliente_telefone: string
+          created_at?: string
+          duracao_min: number
+          fim: string
+          id?: string
+          inicio: string
+          observacoes?: string | null
+          preco?: string
+          servico: string
+          status?: string
+        }
+        Update: {
+          barbeiro?: string
+          cliente_nome?: string
+          cliente_telefone?: string
+          created_at?: string
+          duracao_min?: number
+          fim?: string
+          id?: string
+          inicio?: string
+          observacoes?: string | null
+          preco?: string
+          servico?: string
+          status?: string
+        }
+        Relationships: []
+      }
+      papeis_usuario: {
+        Row: {
+          created_at: string
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      criar_agendamento: {
+        Args: {
+          _barbeiro: string
+          _cliente_nome: string
+          _cliente_telefone: string
+          _duracao_min: number
+          _inicio: string
+          _observacoes?: string
+          _preco: string
+          _servico: string
+        }
+        Returns: string
+      }
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
+      horarios_ocupados: {
+        Args: { _barbeiro: string; _dia: string }
+        Returns: {
+          fim: string
+          inicio: string
+        }[]
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin" | "barbeiro"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +241,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin", "barbeiro"],
+    },
   },
 } as const
