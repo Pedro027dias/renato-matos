@@ -24,8 +24,8 @@ function formatarData(iso: string) {
 }
 
 export function Agendamento() {
-  const [servico, setServico] = useState(SERVICOS[0].nome);
-  const [barbeiro, setBarbeiro] = useState(BARBEIROS[0]);
+  const [servico, setServico] = useState(SERVICOS[0]!.nome);
+  const [barbeiro, setBarbeiro] = useState(BARBEIROS[0]!);
   const [data, setData] = useState("");
   const [hora, setHora] = useState("");
 
