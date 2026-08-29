@@ -76,7 +76,7 @@ export function Agendamento() {
       _preco: precoExibicao(servico),
       _duracao_min: servico.duracaoMin,
       _inicio: inicio.toISOString(),
-      _observacoes: null,
+      _observacoes: undefined,
     });
     setEnviando(false);
 
