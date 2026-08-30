@@ -3,12 +3,14 @@
 // ============================================================
 
 export const CONTATO = {
-  whatsapp: "5511999999999", // <-- EDITÁVEL: número com DDI+DDD, só números
-  telefoneExibicao: "(11) 99999-9999", // <-- EDITÁVEL
-  endereco: "Rua Exemplo, 123 - Centro", // <-- EDITÁVEL
-  cidade: "Sua Cidade - UF", // <-- EDITÁVEL
-  mapsUrl: "https://www.google.com/maps/search/?api=1&query=Renato+Matos+Barbearia", // <-- EDITÁVEL
-  instagram: "@renatomatosbarbearia", // <-- EDITÁVEL
+  whatsapp: "5527995068389", // <-- EDITÁVEL: número com DDI+DDD, só números
+  telefoneExibicao: "(27) 99506-8389", // <-- EDITÁVEL
+  endereco: "Avenida Brasília, 1012 – Porto Canoa", // <-- EDITÁVEL
+  cidade: "Serra – ES, 29168-600", // <-- EDITÁVEL
+  mapsUrl:
+    "https://www.google.com/maps/search/?api=1&query=Avenida+Brasília,+1012,+Porto+Canoa,+Serra+-+ES,+29168-600", // <-- EDITÁVEL
+  instagram: "@renatomatosbarbearia", // <-- EDITÁVEL: texto exibido
+  instagramUrl: "", // <-- EDITÁVEL: URL oficial do perfil quando disponível
 };
 
 export const HORARIOS = [
@@ -35,29 +37,29 @@ export type Servico = {
 };
 
 export const SERVICOS: Servico[] = [
-  { nome: "1.6 - Corte, Selagem, Hidratação", preco: "R$ 130,00", duracaoMin: 75 },
-  { nome: "1.7 - Corte, Luzes, Hidratação", preco: "R$ 130,00", duracaoMin: 60, aPartirDe: true },
+  { nome: "Corte, Selagem, Hidratação", preco: "R$ 130,00", duracaoMin: 75 },
+  { nome: "Corte, Luzes, Hidratação", preco: "R$ 130,00", duracaoMin: 60, aPartirDe: true },
   { nome: "Pacote de Corte Semanal", preco: "R$ 106,00", duracaoMin: 30 },
-  { nome: "0.5 - Selagem/Botox", preco: "R$ 100,00", duracaoMin: 60, aPartirDe: true },
+  { nome: "Selagem/Botox", preco: "R$ 100,00", duracaoMin: 60, aPartirDe: true },
   { nome: "Abordagem Visagista", preco: "R$ 90,00", duracaoMin: 60 },
-  { nome: "1 - Dois Cortes Masculinos", preco: "R$ 80,00", duracaoMin: 60 },
-  { nome: "1.1.1 - Corte e Barboterapia", preco: "R$ 80,00", duracaoMin: 60 },
-  { nome: "1.2 - Corte, Barba, Sobrancelha", preco: "R$ 80,00", duracaoMin: 60 },
-  { nome: "1.8.1 - Corte com Pigmentação", preco: "R$ 75,00", duracaoMin: 45 },
-  { nome: "2.1 - Barba Pigmentada", preco: "R$ 75,00", duracaoMin: 45 },
-  { nome: "1.1 - Corte, Barba no Vapor de Ozônio", preco: "R$ 70,00", duracaoMin: 60 },
-  { nome: "1.8 - Corte, Bigode, Sobrancelha", preco: "R$ 60,00", duracaoMin: 30 },
-  { nome: "2.4 - Barba e Pezinho", preco: "R$ 55,00", duracaoMin: 30 },
-  { nome: "1.3 - Corte, Sobrancelha", preco: "R$ 50,00", duracaoMin: 30 },
-  { nome: "1.4 - Corte, Hidratação", preco: "R$ 50,00", duracaoMin: 45 },
-  { nome: "2.0 - Barboterapia Completa", preco: "R$ 50,00", duracaoMin: 30 },
-  { nome: "2.3 - Barba, Sobrancelha", preco: "R$ 50,00", duracaoMin: 30 },
+  { nome: "Dois Cortes Masculinos", preco: "R$ 80,00", duracaoMin: 60 },
+  { nome: "Corte e Barboterapia", preco: "R$ 80,00", duracaoMin: 60 },
+  { nome: "Corte, Barba, Sobrancelha", preco: "R$ 80,00", duracaoMin: 60 },
+  { nome: "Corte com Pigmentação", preco: "R$ 75,00", duracaoMin: 45 },
+  { nome: "Barba Pigmentada", preco: "R$ 75,00", duracaoMin: 45 },
+  { nome: "Corte, Barba no Vapor de Ozônio", preco: "R$ 70,00", duracaoMin: 60 },
+  { nome: "Corte, Bigode, Sobrancelha", preco: "R$ 60,00", duracaoMin: 30 },
+  { nome: "Barba e Pezinho", preco: "R$ 55,00", duracaoMin: 30 },
+  { nome: "Corte, Sobrancelha", preco: "R$ 50,00", duracaoMin: 30 },
+  { nome: "Corte, Hidratação", preco: "R$ 50,00", duracaoMin: 45 },
+  { nome: "Barboterapia Completa", preco: "R$ 50,00", duracaoMin: 30 },
+  { nome: "Barba, Sobrancelha", preco: "R$ 50,00", duracaoMin: 30 },
   { nome: "Corte Feminino", preco: "R$ 50,00", duracaoMin: 30 },
-  { nome: "1 - Corte Masculino", preco: "R$ 40,00", duracaoMin: 30 },
-  { nome: "2 - Barba no Vapor de Ozônio", preco: "R$ 40,00", duracaoMin: 30 },
+  { nome: "Corte Masculino", preco: "R$ 40,00", duracaoMin: 30 },
+  { nome: "Barba no Vapor de Ozônio", preco: "R$ 40,00", duracaoMin: 30 },
   { nome: "Hidratação", preco: "R$ 35,00", duracaoMin: 15 },
   { nome: "Pigmentação", preco: "R$ 35,00", duracaoMin: 15 },
-  { nome: "2.2 - Hidratação na Barba", preco: "R$ 30,00", duracaoMin: 15 },
+  { nome: "Hidratação na Barba", preco: "R$ 30,00", duracaoMin: 15 },
   { nome: "Limpeza Facial", preco: "R$ 30,00", duracaoMin: 15 },
   { nome: "Depilação de Nariz/Orelha", preco: "R$ 25,00", duracaoMin: 15 },
   { nome: "Pezinho", preco: "R$ 20,00", duracaoMin: 15 },
@@ -84,10 +86,3 @@ export const PASSO_MINUTOS = 15; // <-- EDITÁVEL
 
 
 export const BARBEIROS = ["Renato Matos", "Equipe Renato Matos"]; // <-- EDITÁVEL
-
-// Depoimentos DEMONSTRATIVOS — substitua pelas avaliações reais.
-export const AVALIACOES = [
-  { nome: "Cliente exemplo", texto: "Texto demonstrativo de avaliação. Substitua por um depoimento real de cliente." },
-  { nome: "Cliente exemplo", texto: "Texto demonstrativo de avaliação. Substitua por um depoimento real de cliente." },
-  { nome: "Cliente exemplo", texto: "Texto demonstrativo de avaliação. Substitua por um depoimento real de cliente." },
-];
