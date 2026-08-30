@@ -86,8 +86,32 @@ function Painel() {
   async function entrar(e: React.FormEvent) {
     e.preventDefault();
     const { error } = await supabase.auth.signInWithPassword({ email, password: senha });
-    if (error) toast.error("E-mail ou senha inválidos.");
+    if (error) {
+      toast.error("E-mail ou senha inválidos.");
+      return;
+    }
+    // Primeiro acesso da barbearia recebe automaticamente o papel de barbeiro.
+    await supabase.rpc("reivindicar_acesso_barbeiro");
   }
+
+  async function criarConta() {
+    if (!email || senha.length < 6) {
+      toast.error("Informe e-mail e uma senha de pelo menos 6 caracteres.");
+      return;
+    }
+    const { error } = await supabase.auth.signUp({
+      email,
+      password: senha,
+      options: { emailRedirectTo: `${window.location.origin}/painel` },
+    });
+    if (error) {
+      toast.error("Não foi possível criar a conta.");
+      return;
+    }
+    await supabase.rpc("reivindicar_acesso_barbeiro");
+    toast.success("Conta criada. Se pedir confirmação, verifique seu e-mail.");
+  }
+
 
   async function cancelar(id: string) {
     const { error } = await supabase
