@@ -112,6 +112,7 @@ export type Database = {
           inicio: string
         }[]
       }
+      reivindicar_acesso_barbeiro: { Args: never; Returns: boolean }
     }
     Enums: {
       app_role: "admin" | "barbeiro"
