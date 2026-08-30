@@ -94,7 +94,11 @@ function Painel() {
       .from("agendamentos")
       .update({ status: "cancelado" })
       .eq("id", id);
-    if (error) return toast.error("Não foi possível cancelar.");
+    if (error) {
+      toast.error("Não foi possível cancelar.");
+      return;
+    }
+
     toast.success("Agendamento cancelado — horário liberado.");
     void carregar();
   }
