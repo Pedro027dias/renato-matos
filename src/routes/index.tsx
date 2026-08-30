@@ -423,8 +423,12 @@ function Index() {
               {CONTATO.telefoneExibicao} · {CONTATO.instagram}
             </p>
             <p className="mt-3 text-xs uppercase tracking-widest text-on-dark-muted/70">
-              © {new Date().getFullYear()} Renato Matos Barbearia
+              © {new Date().getFullYear()} Renato Matos Barbearia ·{" "}
+              <a href="/painel" className="underline underline-offset-4 hover:text-on-dark">
+                Painel do barbeiro
+              </a>
             </p>
+
           </div>
         </div>
       </footer>
