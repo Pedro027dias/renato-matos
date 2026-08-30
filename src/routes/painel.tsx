@@ -159,6 +159,14 @@ function Painel() {
           <Button type="submit" variant="accent" size="pillLg" className="mt-6 w-full">
             Entrar
           </Button>
+          <button
+            type="button"
+            onClick={() => void criarConta()}
+            className="mt-4 w-full text-center text-sm text-on-dark-muted underline underline-offset-4 hover:text-on-dark"
+          >
+            Primeiro acesso? Criar conta do barbeiro
+          </button>
+
         </form>
       </main>
     );
