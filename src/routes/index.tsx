@@ -14,7 +14,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Agendamento } from "@/components/site/Agendamento";
 import { Header } from "@/components/site/Header";
-import { AVALIACOES, CONTATO, HORARIOS, NUMEROS, SERVICOS } from "@/config/barbearia";
+import { AVALIACOES, CONTATO, HORARIOS, NUMEROS, SERVICOS, precoExibicao } from "@/config/barbearia";
 import heroAsset from "@/assets/hero.png.asset.json";
 import agendaAsset from "@/assets/agenda.png.asset.json";
 import atendimentoAsset from "@/assets/atendimento.jpg.asset.json";
@@ -151,7 +151,7 @@ function Index() {
                 O que fazemos na cadeira
               </h2>
               <p className="mt-4 text-muted-foreground">
-                Valores de exemplo — totalmente editáveis para os preços reais da barbearia.
+                Catálogo completo com valores e duração de cada atendimento.
               </p>
             </div>
 
@@ -163,17 +163,20 @@ function Index() {
                 >
                   <div className="flex items-start justify-between gap-4">
                     <h3 className="text-xl font-semibold uppercase">{s.nome}</h3>
-                    <span className="shrink-0 rounded-full bg-navy px-3 py-1 font-display text-sm text-on-dark">
-                      {s.preco}
+                    <span className="shrink-0 rounded-full bg-navy px-3 py-1 text-center font-display text-sm text-on-dark">
+                      {precoExibicao(s)}
                     </span>
                   </div>
-                  <p className="mt-3 flex-1 text-sm text-muted-foreground">{s.desc}</p>
+                  <p className="mt-3 flex-1 text-sm text-muted-foreground">
+                    {s.desc ?? `Duração aproximada: ${s.duracaoMin} minutos.`}
+                  </p>
                   <Button variant="quiet" size="pill" className="mt-6 self-start" asChild>
                     <a href="#agendamento">Agendar</a>
                   </Button>
                 </article>
               ))}
             </div>
+
           </div>
         </section>
 
@@ -420,8 +423,12 @@ function Index() {
               {CONTATO.telefoneExibicao} · {CONTATO.instagram}
             </p>
             <p className="mt-3 text-xs uppercase tracking-widest text-on-dark-muted/70">
-              © {new Date().getFullYear()} Renato Matos Barbearia
+              © {new Date().getFullYear()} Renato Matos Barbearia ·{" "}
+              <a href="/painel" className="underline underline-offset-4 hover:text-on-dark">
+                Painel do barbeiro
+              </a>
             </p>
+
           </div>
         </div>
       </footer>

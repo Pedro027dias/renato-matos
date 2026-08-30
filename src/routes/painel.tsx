@@ -86,15 +86,43 @@ function Painel() {
   async function entrar(e: React.FormEvent) {
     e.preventDefault();
     const { error } = await supabase.auth.signInWithPassword({ email, password: senha });
-    if (error) toast.error("E-mail ou senha inválidos.");
+    if (error) {
+      toast.error("E-mail ou senha inválidos.");
+      return;
+    }
+    // Primeiro acesso da barbearia recebe automaticamente o papel de barbeiro.
+    await supabase.rpc("reivindicar_acesso_barbeiro");
   }
+
+  async function criarConta() {
+    if (!email || senha.length < 6) {
+      toast.error("Informe e-mail e uma senha de pelo menos 6 caracteres.");
+      return;
+    }
+    const { error } = await supabase.auth.signUp({
+      email,
+      password: senha,
+      options: { emailRedirectTo: `${window.location.origin}/painel` },
+    });
+    if (error) {
+      toast.error("Não foi possível criar a conta.");
+      return;
+    }
+    await supabase.rpc("reivindicar_acesso_barbeiro");
+    toast.success("Conta criada. Se pedir confirmação, verifique seu e-mail.");
+  }
+
 
   async function cancelar(id: string) {
     const { error } = await supabase
       .from("agendamentos")
       .update({ status: "cancelado" })
       .eq("id", id);
-    if (error) return toast.error("Não foi possível cancelar.");
+    if (error) {
+      toast.error("Não foi possível cancelar.");
+      return;
+    }
+
     toast.success("Agendamento cancelado — horário liberado.");
     void carregar();
   }
@@ -131,6 +159,14 @@ function Painel() {
           <Button type="submit" variant="accent" size="pillLg" className="mt-6 w-full">
             Entrar
           </Button>
+          <button
+            type="button"
+            onClick={() => void criarConta()}
+            className="mt-4 w-full text-center text-sm text-on-dark-muted underline underline-offset-4 hover:text-on-dark"
+          >
+            Primeiro acesso? Criar conta do barbeiro
+          </button>
+
         </form>
       </main>
     );
