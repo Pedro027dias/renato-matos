@@ -299,41 +299,6 @@ function Index() {
           </div>
         </section>
 
-        {/* AVALIAÇÕES */}
-        <section id="avaliacoes" className="bg-background py-20 sm:py-28">
-          <div className="mx-auto max-w-7xl px-5 lg:px-8">
-            <div className="max-w-2xl">
-              <span className="eyebrow text-accent">Avaliações</span>
-              <h2 className="mt-4 text-3xl font-semibold uppercase sm:text-5xl">
-                O que dizem os clientes
-              </h2>
-              <p className="mt-4 text-sm text-muted-foreground">
-                Conteúdo temporário e demonstrativo — será substituído pelas avaliações reais.
-              </p>
-            </div>
-
-            <div className="mt-12 grid gap-5 md:grid-cols-3">
-              {AVALIACOES.map((a, i) => (
-                <article
-                  key={i}
-                  className="rounded-2xl border border-border bg-card p-7 shadow-soft transition-shadow duration-300 hover:shadow-lift"
-                >
-                  <Quote className="size-6 text-accent" />
-                  <p className="mt-4 text-sm text-muted-foreground">{a.texto}</p>
-                  <div className="mt-6 flex items-center justify-between border-t border-border pt-4">
-                    <span className="font-display text-sm uppercase tracking-widest">{a.nome}</span>
-                    <span className="flex gap-0.5">
-                      {Array.from({ length: 5 }).map((_, s) => (
-                        <Star key={s} className="size-3.5 fill-accent text-accent" />
-                      ))}
-                    </span>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* LOCALIZAÇÃO */}
         <section id="localizacao" className="bg-secondary/50 py-20 sm:py-28">
           <div className="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-2 lg:gap-20 lg:px-8">
