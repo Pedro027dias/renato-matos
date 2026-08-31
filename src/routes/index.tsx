@@ -311,8 +311,16 @@ function Index() {
                   <MapPin className="mt-1 size-5 shrink-0 text-accent" />
                   <div>
                     <p className="font-display text-sm uppercase tracking-widest">Endereço</p>
-                    <p className="mt-1 text-muted-foreground">{CONTATO.endereco}</p>
-                    <p className="text-muted-foreground">{CONTATO.cidade}</p>
+                    <a
+                      href={CONTATO.mapsUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="mt-1 block text-muted-foreground transition-colors hover:text-accent"
+                    >
+                      {CONTATO.endereco}
+                      <br />
+                      {CONTATO.cidade}
+                    </a>
                   </div>
                 </div>
 
@@ -320,7 +328,14 @@ function Index() {
                   <Phone className="mt-1 size-5 shrink-0 text-accent" />
                   <div>
                     <p className="font-display text-sm uppercase tracking-widest">Contato</p>
-                    <p className="mt-1 text-muted-foreground">{CONTATO.telefoneExibicao}</p>
+                    <a
+                      href={whatsUrl("Olá! Gostaria de falar com a Renato Matos Barbearia.")}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="mt-1 block text-muted-foreground transition-colors hover:text-accent"
+                    >
+                      {CONTATO.telefoneExibicao}
+                    </a>
                     <p className="flex items-center gap-2 text-muted-foreground">
                       <Instagram className="size-4" /> {CONTATO.instagram}
                     </p>
@@ -380,10 +395,26 @@ function Index() {
           />
           <div className="flex flex-col justify-center gap-1">
             <p className="text-sm text-on-dark-muted">
-              {CONTATO.endereco} · {CONTATO.cidade}
+              <a
+                href={CONTATO.mapsUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="transition-colors hover:text-on-dark"
+              >
+                {CONTATO.endereco} · {CONTATO.cidade}
+              </a>
             </p>
             <p className="text-sm text-on-dark-muted">
-              {CONTATO.telefoneExibicao} · {CONTATO.instagram}
+              <a
+                href={whatsUrl("Olá! Gostaria de falar com a Renato Matos Barbearia.")}
+                target="_blank"
+                rel="noreferrer"
+                className="transition-colors hover:text-on-dark"
+              >
+                {CONTATO.telefoneExibicao}
+              </a>
+              {" · "}
+              {CONTATO.instagram}
             </p>
             <p className="mt-3 text-xs uppercase tracking-widest text-on-dark-muted/70">
               © {new Date().getFullYear()} Renato Matos Barbearia ·{" "}
@@ -391,7 +422,6 @@ function Index() {
                 Painel do barbeiro
               </a>
             </p>
-
           </div>
         </div>
       </footer>
