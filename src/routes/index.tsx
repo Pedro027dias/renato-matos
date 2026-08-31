@@ -169,7 +169,7 @@ function Index() {
                     {s.desc ?? `Duração aproximada: ${s.duracaoMin} minutos.`}
                   </p>
                   <Button variant="quiet" size="pill" className="mt-6 self-start" asChild>
-                    <a href="#agendamento">Agendar</a>
+                    <a href={`/?servico=${encodeURIComponent(s.nome)}#agendamento`}>Agendar</a>
                   </Button>
                 </article>
               ))}

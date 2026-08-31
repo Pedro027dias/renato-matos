@@ -85,4 +85,4 @@ export const EXPEDIENTE: Record<number, { abre: string; fecha: string } | null> 
 export const PASSO_MINUTOS = 15; // <-- EDITÁVEL
 
 
-export const BARBEIROS = ["Renato Matos", "Equipe Renato Matos"]; // <-- EDITÁVEL
+export const BARBEIROS = ["Renato Matos"]; // <-- EDITÁVEL

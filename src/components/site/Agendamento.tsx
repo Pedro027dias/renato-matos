@@ -8,7 +8,13 @@ import { supabase } from "@/integrations/supabase/client";
 import { dataLocal, formatarData, hojeISO, horariosDisponiveis, type Ocupado } from "@/lib/agenda";
 
 export function Agendamento() {
-  const [servicoNome, setServicoNome] = useState(SERVICOS[0]!.nome);
+  const servicoInicial = useMemo(() => {
+    const params = new URLSearchParams(window.location.search);
+    const nome = params.get("servico");
+    return SERVICOS.find((s) => s.nome === nome)?.nome ?? SERVICOS[0]!.nome;
+  }, []);
+
+  const [servicoNome, setServicoNome] = useState(servicoInicial);
   const [barbeiro, setBarbeiro] = useState(BARBEIROS[0]!);
   const [data, setData] = useState("");
   const [hora, setHora] = useState("");
