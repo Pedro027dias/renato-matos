@@ -6,15 +6,13 @@ import {
   MessageCircle,
   Navigation,
   Phone,
-  Quote,
   Scissors,
-  Star,
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Agendamento } from "@/components/site/Agendamento";
 import { Header } from "@/components/site/Header";
-import { AVALIACOES, CONTATO, HORARIOS, NUMEROS, SERVICOS, precoExibicao } from "@/config/barbearia";
+import { CONTATO, HORARIOS, NUMEROS, SERVICOS, precoExibicao } from "@/config/barbearia";
 import heroAsset from "@/assets/hero.png.asset.json";
 import agendaAsset from "@/assets/agenda.png.asset.json";
 import atendimentoAsset from "@/assets/atendimento.jpg.asset.json";
