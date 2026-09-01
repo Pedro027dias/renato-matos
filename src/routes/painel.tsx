@@ -79,7 +79,12 @@ function Painel() {
   }
 
   useEffect(() => {
-    if (sessao) void carregar();
+    if (!sessao) return;
+    void (async () => {
+      // Garante o papel de barbeiro para a conta da barbearia antes de ler a agenda.
+      await supabase.rpc("reivindicar_acesso_barbeiro");
+      await carregar();
+    })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sessao, dia]);
 
