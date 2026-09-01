@@ -113,6 +113,19 @@ function Painel() {
   }
 
 
+  async function confirmar(id: string) {
+    const { error } = await supabase
+      .from("agendamentos")
+      .update({ status: "confirmado" })
+      .eq("id", id);
+    if (error) {
+      toast.error("Não foi possível confirmar.");
+      return;
+    }
+    toast.success("Agendamento confirmado.");
+    void carregar();
+  }
+
   async function cancelar(id: string) {
     const { error } = await supabase
       .from("agendamentos")
@@ -224,11 +237,24 @@ function Painel() {
                   </p>
                 </div>
                 {a.status === "cancelado" ? (
-                  <span className="text-sm uppercase text-on-dark-muted">Cancelado</span>
+                  <div className="flex items-center gap-3">
+                    <span className="text-sm uppercase text-on-dark-muted">Cancelado</span>
+                    <Button variant="quiet" size="pill" onClick={() => void confirmar(a.id)}>
+                      Reativar
+                    </Button>
+                  </div>
                 ) : (
-                  <Button variant="quiet" size="pill" onClick={() => void cancelar(a.id)}>
-                    Cancelar
-                  </Button>
+                  <div className="flex items-center gap-3">
+                    <span className="text-sm uppercase text-accent">{a.status}</span>
+                    {a.status !== "confirmado" && (
+                      <Button variant="accent" size="pill" onClick={() => void confirmar(a.id)}>
+                        Confirmar
+                      </Button>
+                    )}
+                    <Button variant="quiet" size="pill" onClick={() => void cancelar(a.id)}>
+                      Cancelar
+                    </Button>
+                  </div>
                 )}
               </article>
             ))
