@@ -113,6 +113,19 @@ function Painel() {
   }
 
 
+  async function confirmar(id: string) {
+    const { error } = await supabase
+      .from("agendamentos")
+      .update({ status: "confirmado" })
+      .eq("id", id);
+    if (error) {
+      toast.error("Não foi possível confirmar.");
+      return;
+    }
+    toast.success("Agendamento confirmado.");
+    void carregar();
+  }
+
   async function cancelar(id: string) {
     const { error } = await supabase
       .from("agendamentos")
